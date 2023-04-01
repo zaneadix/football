@@ -1,0 +1,7 @@
+.MatchupContent {
+  composes: contentWidth from global;
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-column-gap: var(--spacing-md);
+}

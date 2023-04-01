@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@*": ["./*"],
+      "@components/*": ["./client/components/*"],
+      "@hooks/*": ["./client/hooks/*"],
+      "@models/*": ["./server/models/*"],
+      "@utilities/*": ["./client/utilities/*"]
     }
   }
 }

@@ -1,0 +1,28 @@
+import Link from 'next/link';
+
+// import connectToDatabase from '@server/database';
+import Team from '@models/Team';
+
+async function getTeams() {
+  // await connectToDatabase();
+  const teams = await Team.find({});
+  return teams;
+}
+
+export default async function League() {
+  const teams = await getTeams();
+  return (
+    <>
+      <h3>Teams</h3>
+      <ul>
+        {teams.map(team => {
+          return (
+            <li key={team._id}>
+              <Link href={`/team/${team._id}`}>{team.name}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}

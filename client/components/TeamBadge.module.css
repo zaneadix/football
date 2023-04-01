@@ -1,0 +1,10 @@
+.TeamBadge {
+  font-family: Alpharush;
+  font-size: var(--font-size-lg);
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

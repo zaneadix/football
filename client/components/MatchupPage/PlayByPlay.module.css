@@ -1,0 +1,38 @@
+.PlayByPlay {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  .Drive {
+    border: 4px solid;
+    overflow: hidden;
+
+    .DriveOutcome {
+      display: flex;
+      flex-direction: row;
+      gap: var(--spacing-md);
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      text-align: left;
+      border: 0px;
+      padding: var(--spacing-md);
+    }
+
+    .Plays {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 0;
+
+      &.open {
+        height: auto;
+      }
+
+      .Play {
+        border-top: 4px solid;
+        padding: var(--spacing-sm) var(--spacing-md);
+      }
+    }
+  }
+}
