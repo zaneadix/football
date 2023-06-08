@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import clsx from 'clsx';
+import { useMemo, useState } from "react";
+import clsx from "clsx";
 
-import styles from './PlayByPlay.module.css';
-import TeamBadge from '@client/components/TeamBadge';
+import styles from "./PlayByPlay.module.css";
+import TeamBadge from "@client/components/common/TeamBadge";
 
 const Drive = ({ drive, team }) => {
   const [showPlays, setShowPlays] = useState(false);
@@ -14,7 +14,10 @@ const Drive = ({ drive, team }) => {
 
   return (
     <div className={styles.Drive} role="button">
-      <button className={styles.DriveOutcome} onClick={toggleOpen}>
+      <button
+        className={styles.DriveOutcome}
+        onClick={toggleOpen}
+      >
         <TeamBadge team={team}></TeamBadge>
         <div>
           <div>Punt</div>
@@ -37,16 +40,29 @@ const Drive = ({ drive, team }) => {
   );
 };
 
-export default ({ drives = [], homeTeam, visitingTeam }) => {
+export default ({
+  drives = [],
+  homeTeam,
+  visitingTeam,
+}) => {
   const teamById = useMemo(() => {
-    return { [homeTeam._id]: homeTeam, [visitingTeam._id]: visitingTeam };
+    return {
+      [homeTeam._id]: homeTeam,
+      [visitingTeam._id]: visitingTeam,
+    };
   });
 
   return (
     <section className={styles.PlayByPlay}>
       {drives.map((drive, index) => {
         const team = teamById[drive.teamId];
-        return <Drive key={`drive-${index}`} drive={drive} team={team} />;
+        return (
+          <Drive
+            key={`drive-${index}`}
+            drive={drive}
+            team={team}
+          />
+        );
       })}
     </section>
   );

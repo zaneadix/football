@@ -9,4 +9,4 @@ const TeamSchema = new mongoose.Schema({
   primaryColor: String,
 });
 
-module.exports = mongoose.models.Team || mongoose.model('Team', TeamSchema);
+export default mongoose.models.Team || mongoose.model('Team', TeamSchema);

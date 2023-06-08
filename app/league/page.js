@@ -1,10 +1,7 @@
 import Link from 'next/link';
-
-// import connectToDatabase from '@server/database';
 import Team from '@models/Team';
 
 async function getTeams() {
-  // await connectToDatabase();
   const teams = await Team.find({});
   return teams;
 }

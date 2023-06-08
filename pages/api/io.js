@@ -1,28 +1,11 @@
-import { Server } from 'socket.io';
+import initializeIO from '@server/initializeIO';
 
-import Matchup from '@models/Matchup';
-
-const SocketHandler = (req, res) => {
-  console.log(req);
-  if (!res.socket.server.io) {
-    console.log('Initializing Socket.IO');
-    const io = new Server(res.socket.server);
-    const matchupStream = Matchup.watch();
-
-    io.on('connection', socket => {
-      // socket.broadcast.emit('a user connected');
-      socket.on('hello', msg => {
-        socket.emit('hello', 'world!');
-      });
-    });
-
-    matchupStream.on('change', change => {
-      console.log(change);
-    });
-
-    res.socket.server.io = io;
+const SocketHandler = (request, response) => {
+  if (!response.socket.server.io) {
+    const io = initializeIO(response.socket.server);
+    response.socket.server.io = io;
   }
-  res.end();
+  response.end();
 };
 
 export const config = {

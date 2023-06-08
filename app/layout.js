@@ -6,8 +6,8 @@ import '@styles/globals.css';
 import '@styles/utility.css';
 
 import Providers from './providers';
-import Header from '@components/Header';
-import connectToDatabase from '@server/database';
+import Header from '@client/components/core/Header';
+import connectToDatabase from '@server/connectToDatabase';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 

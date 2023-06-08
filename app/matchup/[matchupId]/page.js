@@ -1,10 +1,8 @@
-import MatchupPage from '@components/MatchupPage/MatchupPage';
-// import MatchupBanner from '@components/MatchupPage/MatchupBanner';
+import MatchupPage from '@client/components/matchup/MatchupPage';
 import Matchup from '@models/Matchup';
 
 const getMatchup = async matchupId => {
-  const matchup = await Matchup.findById(matchupId).populate('homeTeam').populate('visitingTeam').exec();
-  // const matchup = await Matchup.populateMatchup(matchupId);
+  const matchup = await Matchup.populateById(matchupId);
   return JSON.parse(JSON.stringify(matchup));
 };
 
